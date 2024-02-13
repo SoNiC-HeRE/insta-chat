@@ -18,8 +18,6 @@ app.use(cors());
 app.use(morgan("dev"));
 
 io.on("connection", (socket) => {
-  console.log(`User connected: ${socket.id}`);
-
   socket.on("join_room", (data) => {
     socket.join(data);
     console.log(`User with id ${socket.id} joined the chatroom: ${data}`);

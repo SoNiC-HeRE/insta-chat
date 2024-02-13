@@ -31,7 +31,7 @@ function Chat({ socket, userName, room }) {
   }, [socket]);
 
   return (
-    <div>
+    <div className="chat-window">
       <div className="chat-header">
         <p>Live Chat</p>
       </div>
@@ -55,7 +55,7 @@ function Chat({ socket, userName, room }) {
           );
         })}
       </div>
-      <div className="footer">
+      <div className="chat-footer">
         <input
           type="text"
           value={currentMessage}
