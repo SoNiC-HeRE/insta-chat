@@ -20,6 +20,15 @@ app.use(morgan('dev'));
 io.on("connection", (socket) => {
     console.log(`User connected: ${socket.id}`);
 
+    socket.on("join_room", (data) => {
+        socket.join(data);
+        console.log(`${data} joined the chat!`);
+    });
+
+    socket.on("send_message", (data)=>{
+        socket.emit("receive_message", data);
+    })
+
     socket.on("disconnect", () => {
         console.log(`User disconnected: ${socket.id}`);
     });
