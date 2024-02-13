@@ -20,16 +20,30 @@ function App() {
   return (
     <>
       {!showChat ? (
-        <div>
-          <h2>Welcome to Insta Chat</h2>
+        <div className = "main">
+        <div className="hero-container">
+          <div className="hero-left">
+            <h3 className="heading">
+              Hello👋
+            </h3>
+            <p className="sub-heading">Welcome to Insta Chat</p>
+          </div>
+          <div className="hero-right">
           <p>Enter a username and hop in!</p>
+          <div className="container">
           <input
+            className="input-box"
             type="text"
             placeholder="Enter username"
             value={userName}
             onChange={(e) => setuserName(e.target.value)}
           />
-          <button onClick={joinRoom}>Join the chat</button>
+          <button className="button" onClick={joinRoom}>
+  <span class="lable">Let's Chat</span>
+</button>
+        </div>
+        </div>
+        </div>
         </div>
       ) : (
         <Chat socket={socket} userName={userName} room={room} />
