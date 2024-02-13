@@ -1,7 +1,7 @@
 {
   "name": "insta-chat",
   "version": "1.0.0",
-  "description": "",
+  "description": "Instant Chat Web App using NodeJS,React and Socket.io",
   "main": "server.js",
   "scripts": {
     "server": "nodemon backend/server.js"
