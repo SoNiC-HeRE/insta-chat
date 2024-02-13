@@ -1,22 +1,20 @@
 import express from 'express';
-import { createServer } from 'http';
+import http from 'http'; 
+import morgan from 'morgan';
 import cors from 'cors';
-import { Server } from 'socket.io';
-import dotenv from 'dotenv';
+import { Server as SocketServer } from 'socket.io';
 
 const app = express();
-app.use(cors());
-dotenv.config();
 
-const server = createServer(app);
-const PORT = process.env.PORT || 3000;
-
-const io = new Server(server,{
+const server = http.createServer(app)
+const io = new SocketServer(server, {
     cors: {
-        origin: `http://localhost:${PORT}`,
-        methods: ['GET', 'POST'],
+        origin: 'http://localhost:5173',
     }
 });
+
+app.use(cors());
+app.use(morgan('dev'));
 
 io.on("connection", (socket) => {
     console.log(`User connected: ${socket.id}`);
@@ -26,10 +24,6 @@ io.on("connection", (socket) => {
     });
 });
 
-app.get('/', (req, res) => {
-  res.send('<h1>Hello world</h1>');
-});
-
-server.listen(PORT, () => {
-  console.log(`Server running at PORT:${PORT}`);
+server.listen(3000, () => {
+  console.log(`Server running at PORT:3000`);
 });
