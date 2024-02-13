@@ -22,11 +22,11 @@ io.on("connection", (socket) => {
 
     socket.on("join_room", (data) => {
         socket.join(data);
-        console.log(`${data} joined the chat!`);
+        console.log(`User with id ${socket.id} joined the chatroom: ${data}`);
     });
 
     socket.on("send_message", (data)=>{
-        socket.emit("receive_message", data);
+        socket.to(data.room).emit("receive_message", data);
     })
 
     socket.on("disconnect", () => {
