@@ -55,7 +55,7 @@ function App() {
                 className="hero-left"
               >
                 <h3 className="heading">
-                  Hello{" "}
+                  Hello
                   <span className="icon">
                     <PiHandWaving size={120} />
                   </span>
