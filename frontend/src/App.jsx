@@ -5,11 +5,20 @@ import Chat from "./Chat";
 import { PiHandWaving } from "react-icons/pi";
 import Marquee from "./components/Marquee/Marquee";
 import { motion, useAnimation } from "framer-motion";
+import Loader from "./Loader";
 
 const socket = io.connect("http://localhost:3000");
 const room = "Development";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a delay for the loader to show
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
   const controls = useAnimation();
 
   useEffect(() => {
@@ -17,7 +26,7 @@ function App() {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 1,
+        duration: 4,
         ease: "easeInOut",
       },
     });
@@ -35,6 +44,7 @@ function App() {
 
   return (
     <>
+      {isLoading && <Loader />}
       {!showChat ? (
         <div className="main">
           <div className="glass-container">
@@ -76,7 +86,9 @@ function App() {
           </div>
         </div>
       ) : (
+        <div className="chat-container">
         <Chat socket={socket} userName={userName} room={room} />
+        </div>
       )}
     </>
   );
