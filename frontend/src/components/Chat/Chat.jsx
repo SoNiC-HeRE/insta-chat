@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Chat.css";
 
 function Chat({ socket, userName, room }) {
   const [currentMessage, setcurrentMessage] = useState("");
@@ -20,8 +21,8 @@ function Chat({ socket, userName, room }) {
     }
   };
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault(); // Prevents the default behavior (e.g., form submission)
+    if (e.key === "Enter") {
+      e.preventDefault();
       sendMessage();
     }
   };

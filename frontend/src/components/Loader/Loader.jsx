@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Loader.css";
 
 function Loader() {
   const [loading, setLoading] = useState(true);

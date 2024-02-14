@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import io from "socket.io-client";
-import Chat from "./Chat";
+import Chat from "./components/Chat/Chat";
 import { PiHandWaving } from "react-icons/pi";
 import Marquee from "./components/Marquee/Marquee";
 import { motion, useAnimation } from "framer-motion";
-import Loader from "./Loader";
+import Loader from "./components/Loader/Loader";
 
 const socket = io.connect("http://localhost:3000");
 const room = "Development";
