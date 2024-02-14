@@ -19,6 +19,12 @@ function Chat({ socket, userName, room }) {
       setcurrentMessage("");
     }
   };
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevents the default behavior (e.g., form submission)
+      sendMessage();
+    }
+  };
 
   useEffect(() => {
     const receiveMessage = (data) => {
@@ -38,6 +44,7 @@ function Chat({ socket, userName, room }) {
       <div className="chat-body">
         {messageList.map((messageContent) => {
           return (
+            // eslint-disable-next-line react/jsx-key
             <div
               className="message"
               id={userName === messageContent.author ? "other" : "you"}
@@ -61,6 +68,7 @@ function Chat({ socket, userName, room }) {
           value={currentMessage}
           placeholder="Type a message..."
           onChange={(e) => setcurrentMessage(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <button onClick={sendMessage}>Send</button>
       </div>
