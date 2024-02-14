@@ -33,7 +33,7 @@ function Chat({ socket, userName, room }) {
     };
     socket.on("receive_message", receiveMessage);
     return () => {
-      socket.off("receive_message", receiveMessage); // Cleanup function
+      socket.off("receive_message", receiveMessage); 
     };
   }, [socket]);
 
