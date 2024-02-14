@@ -9,12 +9,15 @@ html,
 body {
   width: 100%;
   height: 100%;
+  background-image: linear-gradient(120deg, #ffffff 0%, #8290ce 100%); 
+  overflow: hidden;
 }
 
 .hero-container {
-  height: 100vh;
+  height: 91vh;
   width: 100%;
   display: flex;
+  gap: 2vw;
   align-items: center;
   justify-content: space-between;
   padding: 0 12vw;
@@ -29,28 +32,34 @@ body {
 }
 
 .hero-left {
+  margin-top: .4vw;
   width: 50%;
   display: flex;
   flex-direction: column;
 }
 
-.hero-left h3 {
+.heading {
   font-size: 8.5vw;
-  font-weight: 800;
+  font-weight: 500;
+  font-family: 'PP mori';
   color: #111;
-  line-height: 10vw;
+}
+
+.heading icon {
+  padding: 2vw 2vw 2vw 2vw;
 }
 
 .hero-left p {
-  font-size: 3vw;
+  font-size: 1.8vw;
   color: #111;
-  font-weight: 300;
+  font-weight: 400;
+  margin-left: 0.5vw
 }
 
 .hero-right p {
   font-size: 2vw;
   color: #111;
-  font-weight: 300;
+  font-weight: 00;
 }
 
 .container {

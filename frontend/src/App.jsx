@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import io from "socket.io-client";
 import Chat from "./Chat";
+import { PiHandWaving } from "react-icons/pi";
+import Marquee from "./components/Marquee/Marquee";
 
 const socket = io.connect("http://localhost:3000");
 const room = "Development";
@@ -21,9 +23,10 @@ function App() {
     <>
       {!showChat ? (
         <div className="main">
+          <div className="glass-container">
           <div className="hero-container">
             <div className="hero-left">
-              <h3 className="heading">Hello👋</h3>
+              <h3 className="heading">Hello <span className="icon"><PiHandWaving size={120}/></span></h3>
               <p className="sub-heading">Welcome to Insta Chat</p>
             </div>
             <div className="hero-right">
@@ -37,10 +40,12 @@ function App() {
                   onChange={(e) => setuserName(e.target.value)}
                 />
                 <button className="button" onClick={joinRoom}>
-                  <span class="lable">Let's Chat</span>
+                  <span class="label">Let's Chat</span>
                 </button>
               </div>
             </div>
+          </div>
+          <Marquee/>
           </div>
         </div>
       ) : (
