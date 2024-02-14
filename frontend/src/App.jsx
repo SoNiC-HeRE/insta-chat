@@ -77,7 +77,7 @@ function App() {
                     onChange={(e) => setuserName(e.target.value)}
                   />
                   <button className="button" onClick={joinRoom}>
-                    <span>Let's Chat</span>
+                    <span className="label">Let's Chat</span>
                   </button>
                 </div>
               </motion.div>
