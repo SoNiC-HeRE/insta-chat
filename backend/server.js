@@ -3,9 +3,6 @@ import http from "http";
 import morgan from "morgan";
 import cors from "cors";
 import { Server as SocketServer } from "socket.io";
-import path from "path";
-
-const __dirname = path.resolve();
 
 const app = express();
 
@@ -19,11 +16,6 @@ const io = new SocketServer(server, {
 
 app.use(cors());
 app.use(morgan("dev"));
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
-app.get("*", (req,res)=>{
-  res.sendFile(path.join(__dirname, "frontend","dist","index.html"));
-})
 
 io.on("connection", (socket) => {
   socket.on("join_room", (data) => {

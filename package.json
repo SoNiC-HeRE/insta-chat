@@ -4,9 +4,7 @@
   "description": "Instant Chat Web App using NodeJS,React and Socket.io",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon backend/server.js",
-    "start": "node backend/server.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "server": "nodemon backend/server.js"
   },
   "type": "module",
   "keywords": [],
@@ -18,7 +16,6 @@
     "http": "^0.0.1-security",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.3",
-    "path": "^0.12.7",
     "socket.io": "^4.7.4"
   }
 }
