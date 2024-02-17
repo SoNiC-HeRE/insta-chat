@@ -7,7 +7,7 @@ import Marquee from "./components/Marquee/Marquee";
 import { motion, useAnimation } from "framer-motion";
 import Loader from "./components/Loader/Loader";
 
-const socket = io.connect("http://localhost:3000");
+const socket = io.connect("https://insta-chat-lv4k.onrender.com"); //"https://localhost:3000" for development/local build
 const room = "Development";
 
 function App() {
